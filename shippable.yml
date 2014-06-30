@@ -6,6 +6,7 @@ go:
 install:
   - go get code.google.com/p/go.tools/cmd/cover
 
+
 # Make folders for the reports
 before_script:
   - mkdir -p shippable/testresults
