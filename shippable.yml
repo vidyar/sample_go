@@ -1,7 +1,7 @@
 language: go
 
 go:
-  - 1.2
+  #- 1.2
   - release
   - tip
 
@@ -25,7 +25,9 @@ script:
   - go install github.com/OneRedOak/sample
   - go test -coverprofile=coverage.txt -covermode count github.com/OneRedOak/sample
   - gocover-cobertura < coverage.txt > coverage.xml
-
+matix:
+  include: 
+   - go: 1.2
 after_script:
   - mv $PWD/src/github.com/OneRedOak/sample/junit.xml $PWD/shippable/testresults/
   - mv $PWD/coverage.xml $PWD/shippable/codecoverage/
