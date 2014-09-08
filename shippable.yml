@@ -7,7 +7,8 @@ go:
 
 install:
   - go get code.google.com/p/go.tools/cmd/cover
-
+env:
+  secure: bKGFo/NPd0VoUquECjZj4XUULCJl7MoZe7rkzgqY2qGRu4hFD7UvrNPS4eg4zkEjSHPUE2T9e+cDVJAaF4mUX/19HdcntamxcEDZTdm+MInFiOxxsdpgzpoDJ6mJKMdYVU69MPP0lSAxPiqBOH0LTm+gvtCPsG8TEH+cMbtfJMwoZF8EcKrlatXZIcYsiQyUEroxJpXrf8Z7ylXvQxZsDX/Ml1PhnTwx6KqY5W0z8kUWBliA2R/QH2XTQJgFTEVu7P5JUZQv9M2QK+s/CLv9gQS5s8CX0/gOBNDWGexl/l6sDJK431SyCPQNUaUv7f0l71pf8SldozRBD/jwkYcbPg==
 
 # Make folders for the reports
 before_script:
@@ -15,6 +16,7 @@ before_script:
   - mkdir -p shippable/codecoverage
 
 script:
+  - echo $test
   - export GOPATH=$PWD
   - export PATH=$PATH:$GOPATH/bin
   - go get github.com/t-yuki/gocover-cobertura
