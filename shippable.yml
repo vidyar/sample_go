@@ -2,10 +2,12 @@ language: go
 
 go:
   - 1.2
- # - 1.1
+  #- 1.1
 
 env:
+ global:
   - CI_REPORT=shippable/testresults/junit.xml
+  - secure: Qjz3qB38Bek50Ej3iVUCvvOkeiSuGUsTRvlKHhQxO8FPCZPdAcuZfHppiPII55PSq0k6smDndpvVy79fs1bku9EIjJq4snNuboD/02FpC8Epy9KXP1NebZPz6Z8fcZPIhE85JM8/5lztLx4d0SqWfjgYCm4fscBgniaOVHy4UbtBJ3AWNB5ZE69uit+hYLH+S4zJ/SGqq4aT89vwTWf9LuXxVbgLVwh3dENAGBCqGDrBUwfYME4RyD7ql+jyNRn1sggEas3c7ThoIKk
 
 before_install:
   - go get github.com/t-yuki/gocover-cobertura
@@ -19,8 +21,11 @@ before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
 
+
 script:
+  - echo $foo and $test
   - go test -coverprofile=coverage.txt -covermode count ./
   - $GOPATH/bin/gocover-cobertura < coverage.txt > shippable/codecoverage/coverage.xml
 
 archive: true
+#test
