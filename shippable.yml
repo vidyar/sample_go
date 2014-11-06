@@ -5,6 +5,8 @@ go:
   - release
   - tip
 
+build_image: shippable/minv2
+
 install:
   - go get code.google.com/p/go.tools/cmd/cover
 env:
